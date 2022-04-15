@@ -4,7 +4,7 @@
 	"private": false,
 	"scripts": {
 		"start": "node --stack-size=10000 ./bin/cluster",
-		"stop": "kill -2 $(cat tmp/cluster.pid)",
+		"stop": "kill -2 $(cat tmp/cluster.pid)"
 	},
 	"dependencies": {
 		"async": "^3.1.0",
