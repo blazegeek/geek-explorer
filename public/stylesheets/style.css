@@ -1,34 +1,138 @@
+@font-face {
+	font-family: Play;
+	src: url("../fonts/Play/Play-Regular.ttf");
+}
+
+@font-face {
+	font-family: Play;
+	font-weight: bold;
+	src: url("../fonts/Play/Play-Bold.ttf");
+}
+
+@font-face {
+	font-family: Rokkitt;
+	src: url("../fonts/Rokkitt/Rokkitt-Regular.ttf");
+}
+
+@font-face {
+	font-family: Rokkitt;
+	font-weight: bold;
+	src: url("../fonts/Rokkitt/Rokkitt-Bold.ttf");
+}
+
+@font-face {
+	font-family: "Source Serif Pro";
+	src: url("../fonts/SourceSerifPro/SourceSerifPro-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Source Serif Pro";
+	font-weight: bold;
+	src: url("../fonts/SourceSerifPro/SourceSerifPro-Bold.ttf");
+}
+
+@font-face {
+	font-family: "Source Code Pro";
+	src: url("../fonts/SourceCodePro/static/SourceCodePro-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Source Code Pro";
+	font-weight: bold;
+	src: url("../fonts/SourceCodePro/static/SourceCodePro-Bold.ttf");
+}
+
+@font-face {
+	font-family: Teko;
+	src: url("../fonts/Teko/Teko-Regular.ttf");
+}
+
+@font-face {
+	font-family: Teko;
+	font-weight: bold;
+	src: url("../fonts/Teko/Teko-Bold.ttf");
+}
+
+@font-face {
+	font-family: "Fira Code";
+	src: url("../fonts/FiraCode/FiraCode-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Fira Code";
+	font-weight: bold;
+	src: url("../fonts/FiraCode/FiraCode-Bold.ttf");
+}
+
+@font-face {
+	font-family: "Inconsolata";
+	src: url("../fonts/Inconsolata/Inconsolata-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Inconsolata";
+	font-weight: bold;
+	src: url("../fonts/Inconsolata/Inconsolata-Bold.ttf");
+}
+
+@font-face {
+	font-family: "Oxygen Mono";
+	src: url("../fonts/OxygenMono/OxygenMono-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Share Tech Mono";
+	src: url("../fonts/ShareTechMono/ShareTechMono-Regular.ttf");
+}
+
 body {
-  padding: 80px 40px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 80px 40px;
+	font: 14px Play, sans-serif;
  /* background-image: url('/images/background2.png');*/
 }
 
+.use-mono {
+		font-family: "Source Code Pro";
+}
+
+.use-mono-large {
+		font-size: 16px;
+}
+
+.use-teko {
+		font-family: Teko;
+		font-size: 18px;
+}
+
+.use-rokkitt {
+		font-family: Rokkitt;
+}
+
 .navbar {
-	padding: 0.2rem 0.4rem;
+		padding: 0.2rem 0.4rem;
 }
 
 .footer p {
-    margin-top: 0.1rem;
-    margin-bottom: 0.1rem;
+		margin-top: 0.1rem;
+		margin-bottom: 0.1rem;
 }
 
 .footer .nav-link {
-    padding: 0.1rem 0.1rem;
+		padding: 0.1rem 0.1rem;
 }
 
 .footer label {
-    margin-bottom: 0.1rem;
+		margin-bottom: 0.1rem;
 }
 
 .footer .poweredby {
-    margin-right: 0.2rem;
-    font-size: 80%;
+		margin-right: 0.2rem;
+		font-size: 80%;
 }
 
 .footer .social-link {
-    margin-right: 0.2rem;
-    font-size: 100%;
+		margin-right: 0.2rem;
+		font-size: 100%;
 }
 
 .footer .social-link img{
@@ -41,14 +145,14 @@ body {
 	position: absolute;
 	bottom: 0px;
 }
-
+/*
 #index-search {
 	width: 80%;
 }
-
-.nav-search input {
-	width: 400px !important;
-	margin-right: 5px;	
+*/
+.nav-search {
+	width: 60% !important;
+	justify-content: right;
 }
 
 .view_tx {
@@ -85,8 +189,8 @@ body {
 }
 
 p {
-    margin-top: 0.4rem;
-    margin-bottom: 0.4rem;
+		margin-top: 0.4rem;
+		margin-bottom: 0.4rem;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -137,7 +241,7 @@ tr {
 
 #loading-icon {
 	width: 30px;
-    margin: 10px 10px;
+		margin: 10px 10px;
 }
 
 .menu-text {
@@ -183,14 +287,14 @@ tr {
 
 @media(max-width:1096px){
 	.nav-search input {
-	    width: 300px !important;
-    }
+			width: 500px !important;
+		}
 }
 
 @media(max-width:865px){
 	.nav-search input {
-	    width: 150px !important;
-    }
+			width: 300px !important;
+		}
 }
 .table>tbody>tr>td.addr-summary {
 	line-height: 7.7;
@@ -205,8 +309,6 @@ tr {
 	right: 15px;*/
 }
 
-
 .decimal {
-	font-size: 0.7em;
+	font-size: 0.92em;
 }
-

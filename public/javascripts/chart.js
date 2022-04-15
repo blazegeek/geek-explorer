@@ -94,25 +94,25 @@ window.Chart = function(context){
 		},
 		easeInElastic: function (t) {
 			var s=1.70158;var p=0;var a=1;
-			if (t==0) return 0;  if ((t/=1)==1) return 1;  if (!p) p=1*.3;
+			if (t==0) return 0;  if ((t/=1)==1) return 1;  if (!p) p=1*0.3;
 			if (a < Math.abs(1)) { a=1; var s=p/4; }
 			else var s = p/(2*Math.PI) * Math.asin (1/a);
 			return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*1-s)*(2*Math.PI)/p ));
 		},
 		easeOutElastic: function (t) {
 			var s=1.70158;var p=0;var a=1;
-			if (t==0) return 0;  if ((t/=1)==1) return 1;  if (!p) p=1*.3;
+			if (t==0) return 0;  if ((t/=1)==1) return 1;  if (!p) p=1*0.3;
 			if (a < Math.abs(1)) { a=1; var s=p/4; }
 			else var s = p/(2*Math.PI) * Math.asin (1/a);
 			return a*Math.pow(2,-10*t) * Math.sin( (t*1-s)*(2*Math.PI)/p ) + 1;
 		},
 		easeInOutElastic: function (t) {
 			var s=1.70158;var p=0;var a=1;
-			if (t==0) return 0;  if ((t/=1/2)==2) return 1;  if (!p) p=1*(.3*1.5);
+			if (t==0) return 0;  if ((t/=1/2)==2) return 1;  if (!p) p=1*(0.3 * 1.5);
 			if (a < Math.abs(1)) { a=1; var s=p/4; }
 			else var s = p/(2*Math.PI) * Math.asin (1/a);
-			if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*1-s)*(2*Math.PI)/p ));
-			return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*1-s)*(2*Math.PI)/p )*.5 + 1;
+			if (t < 1) return -0.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*1-s)*(2*Math.PI)/p ));
+			return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*1-s)*(2*Math.PI)/p )*0.5 + 1;
 		},
 		easeInBack: function (t) {
 			var s = 1.70158;
@@ -134,16 +134,16 @@ window.Chart = function(context){
 			if ((t/=1) < (1/2.75)) {
 				return 1*(7.5625*t*t);
 			} else if (t < (2/2.75)) {
-				return 1*(7.5625*(t-=(1.5/2.75))*t + .75);
+				return 1*(7.5625*(t-=(1.5/2.75))*t + 0.75);
 			} else if (t < (2.5/2.75)) {
-				return 1*(7.5625*(t-=(2.25/2.75))*t + .9375);
+				return 1*(7.5625*(t-=(2.25/2.75))*t + 0.9375);
 			} else {
-				return 1*(7.5625*(t-=(2.625/2.75))*t + .984375);
+				return 1*(7.5625*(t-=(2.625/2.75))*t + 0.984375);
 			}
 		},
 		easeInOutBounce: function (t) {
-			if (t < 1/2) return animationOptions.easeInBounce (t*2) * .5;
-			return animationOptions.easeOutBounce (t*2-1) * .5 + 1*.5;
+			if (t < 1/2) return animationOptions.easeInBounce (t*2) * 0.5;
+			return animationOptions.easeOutBounce (t*2-1) * 0.5 + 1 * 0.5;
 		}
 	};
 
@@ -316,7 +316,7 @@ window.Chart = function(context){
 		var config = (options) ? mergeChartConfig(chart.Line.defaults,options) : chart.Line.defaults;
 		
 		return new Line(data,config,context);
-	}
+	};
 	
 	this.Bar = function(data,options){
 		chart.Bar.defaults = {
@@ -348,7 +348,7 @@ window.Chart = function(context){
 		var config = (options) ? mergeChartConfig(chart.Bar.defaults,options) : chart.Bar.defaults;
 		
 		return new Bar(data,config,context);		
-	}
+	};
 	
 	var clear = function(c){
 		c.clearRect(0, 0, width, height);
@@ -375,7 +375,7 @@ window.Chart = function(context){
 				stepValue : config.scaleStepWidth,
 				graphMin : config.scaleStartValue,
 				labels : []
-			}
+			};
 			populateLabels(labelTemplateString, calculatedScale.labels,calculatedScale.steps,config.scaleStartValue,config.scaleStepWidth);
 		}
 		
@@ -472,7 +472,7 @@ window.Chart = function(context){
 			for (var i=0; i<data.length; i++){
 				if (data[i].value > upperValue) {upperValue = data[i].value;}
 				if (data[i].value < lowerValue) {lowerValue = data[i].value;}
-			};
+			}
 
 			var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
 			var minSteps = Math.floor((scaleHeight / labelHeight*0.5));
@@ -486,7 +486,7 @@ window.Chart = function(context){
 			
 
 		}
-	}
+	};
 
 	var Radar = function (data,config,ctx) {
 		var maxSize, scaleHop, calculatedScale, labelHeight, scaleHeight, valueBounds, labelTemplateString;	
@@ -511,7 +511,7 @@ window.Chart = function(context){
 				stepValue : config.scaleStepWidth,
 				graphMin : config.scaleStartValue,
 				labels : []
-			}
+			};
 			populateLabels(labelTemplateString, calculatedScale.labels,calculatedScale.steps,config.scaleStartValue,config.scaleStepWidth);
 		}
 		
@@ -645,7 +645,7 @@ window.Chart = function(context){
 				
 			}
 			ctx.restore();
-		};
+		}
 		function calculateDrawingSizes(){
 			maxSize = (Min([width,height])/2);
 
@@ -666,15 +666,15 @@ window.Chart = function(context){
 			scaleHeight = maxSize;
 			//If the label height is less than 5, set it to 5 so we don't have lines on top of each other.
 			labelHeight = Default(labelHeight,5);
-		};
+		}
 		function getValueBounds() {
 			var upperValue = Number.MIN_VALUE;
 			var lowerValue = Number.MAX_VALUE;
 			
 			for (var i=0; i<data.datasets.length; i++){
 				for (var j=0; j<data.datasets[i].data.length; j++){
-					if (data.datasets[i].data[j] > upperValue){upperValue = data.datasets[i].data[j]}
-					if (data.datasets[i].data[j] < lowerValue){lowerValue = data.datasets[i].data[j]}
+					if (data.datasets[i].data[j] > upperValue){upperValue = data.datasets[i].data[j];}
+					if (data.datasets[i].data[j] < lowerValue){lowerValue = data.datasets[i].data[j];}
 				}
 			}
 
@@ -690,7 +690,7 @@ window.Chart = function(context){
 			
 
 		}
-	}
+	};
 
 	var Pie = function(data,config,ctx){
 		var segmentTotal = 0;
@@ -734,7 +734,7 @@ window.Chart = function(context){
 				cumulativeAngle += segmentAngle;
 			}			
 		}		
-	}
+	};
 
 	var Doughnut = function(data,config,ctx){
 		var segmentTotal = 0;
@@ -784,7 +784,7 @@ window.Chart = function(context){
 		
 		
 		
-	}
+	};
 
 	var Line = function(data,config,ctx){
 		var maxSize, scaleHop, calculatedScale, labelHeight, scaleHeight, valueBounds, labelTemplateString, valueHop,widestXLabel, xAxisLength,yAxisPosX,xAxisPosY, rotateLabels = 0;
@@ -804,7 +804,7 @@ window.Chart = function(context){
 				stepValue : config.scaleStepWidth,
 				graphMin : config.scaleStartValue,
 				labels : []
-			}
+			};
 			populateLabels(labelTemplateString, calculatedScale.labels,calculatedScale.steps,config.scaleStartValue,config.scaleStepWidth);
 		}
 		
@@ -817,7 +817,7 @@ window.Chart = function(context){
 				ctx.strokeStyle = data.datasets[i].strokeColor;
 				ctx.lineWidth = config.datasetStrokeWidth;
 				ctx.beginPath();
-				ctx.moveTo(yAxisPosX, xAxisPosY - animPc*(calculateOffset(data.datasets[i].data[0],calculatedScale,scaleHop)))
+				ctx.moveTo(yAxisPosX, xAxisPosY - animPc*(calculateOffset(data.datasets[i].data[0],calculatedScale,scaleHop)));
 
 				for (var j=1; j<data.datasets[i].data.length; j++){
 					if (config.bezierCurve){
@@ -997,10 +997,10 @@ window.Chart = function(context){
 			var lowerValue = Number.MAX_VALUE;
 			for (var i=0; i<data.datasets.length; i++){
 				for (var j=0; j<data.datasets[i].data.length; j++){
-					if ( data.datasets[i].data[j] > upperValue) { upperValue = data.datasets[i].data[j] };
-					if ( data.datasets[i].data[j] < lowerValue) { lowerValue = data.datasets[i].data[j] };
+					if ( data.datasets[i].data[j] > upperValue) { upperValue = data.datasets[i].data[j]; }
+					if ( data.datasets[i].data[j] < lowerValue) { lowerValue = data.datasets[i].data[j]; }
 				}
-			};
+			}
 	
 			var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
 			var minSteps = Math.floor((scaleHeight / labelHeight*0.5));
@@ -1016,7 +1016,7 @@ window.Chart = function(context){
 		}
 
 		
-	}
+	};
 	
 	var Bar = function(data,config,ctx){
 		var maxSize, scaleHop, calculatedScale, labelHeight, scaleHeight, valueBounds, labelTemplateString, valueHop,widestXLabel, xAxisLength,yAxisPosX,xAxisPosY,barWidth, rotateLabels = 0;
@@ -1036,7 +1036,7 @@ window.Chart = function(context){
 				stepValue : config.scaleStepWidth,
 				graphMin : config.scaleStartValue,
 				labels : []
-			}
+			};
 			populateLabels(labelTemplateString, calculatedScale.labels,calculatedScale.steps,config.scaleStartValue,config.scaleStepWidth);
 		}
 		
@@ -1201,10 +1201,10 @@ window.Chart = function(context){
 			var lowerValue = Number.MAX_VALUE;
 			for (var i=0; i<data.datasets.length; i++){
 				for (var j=0; j<data.datasets[i].data.length; j++){
-					if ( data.datasets[i].data[j] > upperValue) { upperValue = data.datasets[i].data[j] };
-					if ( data.datasets[i].data[j] < lowerValue) { lowerValue = data.datasets[i].data[j] };
+					if ( data.datasets[i].data[j] > upperValue) { upperValue = data.datasets[i].data[j]; }
+					if ( data.datasets[i].data[j] < lowerValue) { lowerValue = data.datasets[i].data[j]; }
 				}
-			};
+			}
 	
 			var maxSteps = Math.floor((scaleHeight / (labelHeight*0.66)));
 			var minSteps = Math.floor((scaleHeight / labelHeight*0.5));
@@ -1218,7 +1218,7 @@ window.Chart = function(context){
 			
 	
 		}
-	}
+	};
 	
 	function calculateOffset(val,calculatedScale,scaleHop){
 		var outerValue = calculatedScale.steps * calculatedScale.stepValue;
@@ -1307,7 +1307,7 @@ window.Chart = function(context){
 			        stepValue *=2;
 			        numberOfSteps = Math.round(graphRange/stepValue);
 		        }
-	        };
+	        }
 
 	        var labels = [];
 	        populateLabels(labelTemplateString, labels, numberOfSteps, graphMin, stepValue);
@@ -1318,7 +1318,7 @@ window.Chart = function(context){
 				graphMin : graphMin,
 				labels : labels		        
 		        
-	        }
+	        };
 		
 			function calculateOrderOfMagnitude(val){
 			  return Math.floor(Math.log(val) / Math.LN10);
@@ -1340,11 +1340,11 @@ window.Chart = function(context){
 	//Max value from array
 	function Max( array ){
 		return Math.max.apply( Math, array );
-	};
+	}
 	//Min value from array
 	function Min( array ){
 		return Math.min.apply( Math, array );
-	};
+	}
 	//Default if undefined
 	function Default(userDeclared,valueIfFalse){
 		if(!userDeclared){
@@ -1352,7 +1352,7 @@ window.Chart = function(context){
 		} else {
 			return userDeclared;
 		}
-	};
+	}
 	//Is a number function
 	function isNumber(n) {
 		return !isNaN(parseFloat(n)) && isFinite(n);
@@ -1374,7 +1374,7 @@ window.Chart = function(context){
 	function getDecimalPlaces (num){
 		var numberOfDecimalPlaces;
 		if (num%1!=0){
-			return num.toString().split(".")[1].length
+			return num.toString().split(".")[1].length;
 		}
 		else{
 			return 0;
@@ -1415,12 +1415,9 @@ window.Chart = function(context){
 	          .replace(/\t=(.*?)%>/g, "',$1,'")
 	          .split("\t").join("');")
 	          .split("%>").join("p.push('")
-	          .split("\r").join("\\'")
-	      + "');}return p.join('');");
+	          .split("\r").join("\\'") + "'); }return p.join('');");
 	   
 	    // Provide some basic currying to the user
 	    return data ? fn( data ) : fn;
-	  };
-}
-
-
+	  }
+};

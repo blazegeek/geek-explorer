@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-  , Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
  
 var AddressTXSchema = new Schema({
   a_id: { type: String, index: true},

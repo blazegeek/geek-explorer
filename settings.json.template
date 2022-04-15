@@ -5,40 +5,34 @@
 */
 {
   // name your instance!
-  "title": "IQUIDUS",
+  "title": "GEEK Explorer",
 
-  "address": "127.0.0.1:3001",
+  "address": "localhost",
 
   // coin name
-  "coin": "Darkcoin",
+  "coin": "GeekCash",
 
   // coin symbol
-  "symbol": "DRK",
+  "symbol": "GEEK",
 
   // logo
-  "logo": "/images/logo.png",
+  "logo": "public/images/logo.png",
   // Optional header logo - change false to e.g. "/images/headerlogo.png"
-  "headerlogo": false,
+  "headerlogo": "public/images/headerlogo.png",
 
   // favicon
   "favicon": "public/favicon.ico",
 
-  // Uses bootswatch themes (http://bootswatch.com/)
-  // Valid options:
-  //     Cerulean, Cosmo, Cyborg, Darkly, Flatly, Journal, Litera, Lumen, 
-  //     Lux, Materia, Minty, Pulse, Sandstone, Simplex, Sketchy, Slate, 
-  //     Solar, Spacelab, Superhero, United, Yeti
-  // theme (see /public/themes for available themes)
-  "theme": "Cyborg",
+  "theme": "Slate",
 
   // port to listen for requests on.
   "port" : 3001,
 
   // database settings (MongoDB)
   "dbsettings": {
-    "user": "iquidus",
-    "password": "3xp!0reR",
-    "database": "explorerdb",
+    "user": "geek",
+    "password": "explorer",
+    "database": "geekexplorerdb",
     "address": "localhost",
     "port": 27017
   },
@@ -53,9 +47,9 @@
 
   "wallet": {
     "host": "localhost",
-    "port": 9332,
-    "username": "darkcoinrpc",
-    "password": "123gfjk3R3pCCVjHtbRde2s5kzdf233sa"
+    "port": 6888,
+    "username": "geek",
+    "password": "explorer"
   },
 
   // confirmations
@@ -67,27 +61,15 @@
   // menu settings
   "display": {
     "api": true,
-    "markets": true,
     "richlist": true,
-    "twitter": true,
-    "facebook": false,
-    "googleplus": false,
-    "youtube": false,
     "search": true,
     "movement": true,
     "network": true,
-    // Settings to switch navbar theme, leaving both false will use the 'primary' navbar
-    "navbar_dark": false,
-    "navbar_light": false
   },
 
   // index page (valid options for difficulty are POW, POS or Hybrid)
   "index": {
     "show_hashrate": true,
-    // Show Market Cap in header
-    "show_market_cap": false,
-    // Show Market Cap in place of price box
-    "show_market_cap_over_price": false,
     "difficulty": "POW",
     "last_txs": 100,
     "txs_per_page": 10
@@ -95,21 +77,10 @@
 
   // ensure links on API page are valid
   "api": {
-    "blockindex": 1337,
-    "blockhash": "1733320247b15ca2262be646397d1ffd6be953fa638ebb8f5dcbb4c2b91b34f1",
-    "txhash": "f270cd3813254c9922a2e222a56ba745842d9112223a1394062e460b33d27b7e",
-    "address": "RBiXWscC63Jdn1GfDtRj8hgv4Q6Zppvpwb"
-  },
-
-  // market settings
-  //included markets: altmarkets, fides, bittrex, poloniex, yobit, bleutrade
-  //default market is loaded by default and determines last price in header
-  "markets": {
-    "coin": "JBS",
-    "exchange": "BTC",
-    "enabled": ["bittrex"],
-    "ccex_key" : "Get-Your-Own-Key",
-    "default": "bittrex"
+    "blockindex": 1,
+    "blockhash": "000001c800f8dd4695bc5f30711c876552f444fbaade6d344f30e05105fcc852",
+    "txhash": "716690870aef4090659d6af0946051331e1b029c4e768dab07a35e576565e628",
+    "address": "GLjRv3qsGLgonvhSRxUJ5SntVmkYGHtvFH"
   },
 
   // richlist/top100 settings
@@ -118,6 +89,7 @@
     "received": true,
     "balance": true
   },
+
   // movement page settings
   // min amount: show transactions greater than this value
   // low flag: greater than this value flagged yellow
@@ -128,21 +100,12 @@
     "high_flag": 5000
   },
 
-  // twitter, facebook, googleplus, youtube
-  "twitter": "iquidus",
-  "facebook": "yourfacebookpage",
-  "googleplus": "yourgooglepluspage",
-  "youtube": "youryoutubechannel",
-
   //genesis
-  "genesis_tx": "65f705d2f385dc85763a317b3ec000063003d6b039546af5d8195a5ec27ae410",
-  "genesis_block": "b2926a56ca64e0cd2430347e383f63ad7092f406088b9b86d6d68c2a34baef51",
-
-  //heavy (enable/disable additional heavy features)
-  "heavy": false,
+  "genesis_tx": "6d87016979d2f369dcb5fc3a5c284be1a316790cbaabfcce403d24da4b49b210",
+  "genesis_block": "00000d586e0fd3a2700d656be5fc7076bdd22cfbb3c1de83b61a5f0524fb6bba",
 
   //disable saving blocks & TXs via API during indexing.
-  "lock_during_index": false,
+  "lock_during_index": true,
 
   //amount of txs to index per address (stores latest n txs)
   "txcount": 100,
@@ -154,7 +117,6 @@
   // how to calculate current coin supply
   // COINBASE : total sent from coinbase (PoW)
   // GETINFO : retreive from getinfo api call (PoS)
-  // HEAVY: retreive from heavys getsupply api call
   // BALANCES : total of all address balances
   // TXOUTSET : retreive from gettxoutsetinfo api call
   "supply": "COINBASE",
