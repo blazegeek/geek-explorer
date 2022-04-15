@@ -1,20 +1,17 @@
-Iquidus Explorer - 1.7.4
+GEEK Explorer - 0.9.0
 ================
 
 An open source block explorer written in node.js.
 
 ### See it in action
 
-*  [List of live explorers running Iquidus](https://github.com/iquidus/explorer/wiki/Live-Explorers)
-
-
-*Note: If you would like your instance mentioned here contact me*
+*  [GEEK Explorer](https://explorer.blazegeek.com)
 
 ### Requires
 
 *  node.js >= 8.17.0 (12.14.0 is advised for updated dependencies)
 *  mongodb 4.2.x
-*  *coind
+*  geekcashd
 
 ### Create database
 
@@ -28,15 +25,15 @@ Create databse:
 
 Create user with read/write access:
 
-	> db.createUser( { user: "iquidus", pwd: "3xp!0reR", roles: [ "readWrite" ] } )
+	> db.createUser( { user: "geek", pwd: "explorer", roles: [ "readWrite" ] } )
 
 *Note: If you're using mongo shell 4.2.x, use the following to create your user:
 
-	> db.addUser( { user: "username", pwd: "password", roles: [ "readWrite"] })
+	> db.addUser( { user: "geek", pwd: "explorer", roles: [ "readWrite"] })
 
 ### Get the source
 
-	git clone https://github.com/blazegeek/explorer explorer
+	git clone https://github.com/blazegeek/geek-explorer geek-explorer
 
 ### Install node modules
 
@@ -70,7 +67,6 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 
 	database: (required)
 	index [mode] Main index: coin info/stats, transactions & addresses
-	market       Market data: summaries, orderbooks, trade history & chartdata
 
 	mode: (required for index database only)
 	update       Updates index from last sync to current block
@@ -79,7 +75,6 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 
 	notes:
 	* 'current block' is the latest created block when script is executed.
-	* The market database only supports (& defaults to) reindex mode.
 	* If check mode finds missing data(ignoring new data since last sync),
 	  index_timeout in settings.json is set too low.
 
@@ -91,12 +86,11 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 *Example crontab; update index every minute and market data every 2 minutes*
 
 	*/1 * * * * cd /path/to/explorer && /usr/bin/nodejs scripts/sync.js index update > /dev/null 2>&1
-	*/2 * * * * cd /path/to/explorer && /usr/bin/nodejs scripts/sync.js market > /dev/null 2>&1
 	*/5 * * * * cd /path/to/explorer && /usr/bin/nodejs scripts/peers.js > /dev/null 2>&1
 
 ### Wallet
 
-Iquidus Explorer is intended to be generic, so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags
+The GeekCash wallet must be running with atleast the following flags
 
 	-daemon -txindex
 	
@@ -108,10 +102,9 @@ Ensure mongodb is not exposed to the outside world via your mongo config or a fi
 
 **script is already running.**
 
-If you receive this message when launching the sync script either a) a sync is currently in progress, or b) a previous sync was killed before it completed. If you are certian a sync is not in progress remove the index.pid and db_index.pid from the tmp folder in the explorer root directory.
+If you receive this message when launching the sync script either: a) a sync is currently in progress; or b) a previous sync was killed before it completed. If you are certian a sync is not in progress remove the index.pid and from the tmp folder in the explorer root directory.
 
 	rm tmp/index.pid
-	rm tmp/db_index.pid
 
 **exceeding stack size**
 
