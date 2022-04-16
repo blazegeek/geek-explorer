@@ -22,30 +22,30 @@ block content
 						- var confirms = (blockcount - tx.blockindex);
 						if confirms >= confirmations             
 							tr.table-success
-									td #{confirms}
-									td.hidden-xs 
+									td.use-mono #{confirms}
+									td.hidden-xs.use-mono 
 										a(href='/block/'+tx.blockhash) #{tx.blockhash}
-									td #{time}
-									td.view_tx  
+									td.use-mono #{time}
+									td.view_tx.use-mono  
 										a(href='/block/'+tx.blockhash)
 											span.fa.fa-eye 
 						else
 							if confirms < (confirmations / 2)
 								tr.table-danger
-									td #{confirms}
-									td.hidden-xs  
+									td.use-mono #{confirms}
+									td.hidden-xs.use-mono  
 										a(href='/block/'+tx.blockhash) #{tx.blockhash}
-									td #{time}
-									td.view_tx  
+									td.use-mono #{time}
+									td.view_tx.use-mono  
 										a(href='/block/'+tx.blockhash)
 											span.fa.fa-eye 
 							else
 								tr.table-warning
-									td #{confirms}
-									td.hidden-xs  
+									td.use-mono #{confirms}
+									td.hidden-xs.use-mono  
 										a(href='/block/'+tx.blockhash) #{tx.blockhash}
-									td #{time}
-									td.view_tx  
+									td.use-mono #{time}
+									td.view_tx.use-mono  
 										a(href='/block/'+tx.blockhash)
 											span.fa.fa-eye
 		if tx.vout.length < 1
@@ -72,7 +72,7 @@ block content
 											tr.table-info(style='text-align:center')
 												td #{settings.locale.new_coins}
 										else
-											- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+											- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
 											- var ramountParts = ramount.split('.')
 											tr
 												td 
@@ -95,10 +95,10 @@ block content
 								tr
 									th #{settings.locale.tx_address}
 									th.d-none.d-md-block #{settings.locale.tx_amount} (#{settings.symbol})
-							tbody
+							tbody.use-mono
 								each r in tx.vout
 									if tx.vout.length > 0 
-										- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+										- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
 										- var ramountParts = ramount.split('.')
 										tr.d-sm-block.d-md-none.d-none
 											td 
@@ -110,7 +110,7 @@ block content
 											td.success #{ramountParts[0]}.
 														span.decimal #{ramountParts[1]} #{settings.symbol}
 									else
-										- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+										- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
 										- var ramountParts = ramount.split('.')
 									tr
 										td 
