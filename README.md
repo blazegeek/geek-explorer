@@ -1,7 +1,7 @@
 GEEK Explorer - 0.9.0
 ================
 
-An open source block explorer written in node.js.
+An open source block explorer written in node.js originally forked from [iquidus explorer](https://github.com/iquidus/explorer").
 
 ### See it in action
 
