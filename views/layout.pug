@@ -31,7 +31,7 @@ html
 						var diffString = json.data[0].difficulty;
 						var hashrateString = json.data[0].hashrate;
 						if (!isNaN(json.data[0].difficulty)) {
-							diffString = parseFloat(json.data[0].difficulty).toFixed(16);
+							diffString = parseFloat(json.data[0].difficulty).toFixed(12);
 						}
 						if (!isNaN(json.data[0].supply)) {
 							supplyString = parseInt(parseFloat(json.data[0].supply).toFixed(0)).toLocaleString('en');

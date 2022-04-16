@@ -24,6 +24,7 @@
 	"tx_hash": "Hash",
 	"tx_address": "Address",
 	"tx_nonstandard": "NONSTANDARD TX",
+	"tx_amount": "Amount",
 
 	"block_previous": "Previous",
 	"block_next": "Next",
