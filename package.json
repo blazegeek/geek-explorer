@@ -16,7 +16,7 @@
 		"express": "~4.17.1",
     "express-force-ssl": "^0.3.2",
 		"intl": "^1.2.5",
-		"jsonminify": "0.2.3",
+		"jsonminify": "0.4.2",
 		"jstransformer-markdown-it": "^2.1.0",
 		"mongodb": "^4.5.0",
 		"mongoose": "5.13.14",
