@@ -17,13 +17,11 @@
 
   // logo
   "logo": "public/images/logo.png",
-  // Optional header logo - change false to e.g. "/images/headerlogo.png"
+  // Optional header logo - change to false to disable
   "headerlogo": "public/images/headerlogo.png",
 
   // favicon
   "favicon": "public/favicon.ico",
-
-  "theme": "Slate",
 
   // port to listen for requests on.
   "port" : 3001,
@@ -38,7 +36,7 @@
   },
 
   //update script settings
-  "update_timeout": 10,
+  "update_timeout": 50,
   "check_timeout": 250,
   "block_parallel_tasks": 1,
 
@@ -64,15 +62,15 @@
     "richlist": true,
     "search": true,
     "movement": true,
-    "network": true,
+    "network": true
   },
 
   // index page (valid options for difficulty are POW, POS or Hybrid)
   "index": {
     "show_hashrate": true,
     "difficulty": "POW",
-    "last_txs": 100,
-    "txs_per_page": 10
+    "last_txs": 10000,
+    "txs_per_page": 50
   },
 
   // ensure links on API page are valid
@@ -95,9 +93,9 @@
   // low flag: greater than this value flagged yellow
   // high flag: greater than this value flagged red
   "movement": {
-    "min_amount": 100,
+    "min_amount": 1,
     "low_flag": 1000,
-    "high_flag": 5000
+    "high_flag": 100000
   },
 
   //genesis
@@ -108,7 +106,7 @@
   "lock_during_index": true,
 
   //amount of txs to index per address (stores latest n txs)
-  "txcount": 100,
+  "txcount": 1000,
   "txcount_per_page": 50,
 
   //show total sent & received on address page (set false if PoS)
@@ -128,15 +126,14 @@
 
   // nethash unitd: sets nethash API return units
   // valid options: "P" (PH/s), "T" (TH/s), "G" (GH/s), "M" (MH/s), "K" (KH/s)
-  "nethash_units": "G",
+  "nethash_units": "H",
 
   // Address labels
-  // example : "JhbrvAmM7kNpwA6wD5KoAsbtikLWWMNPcM": {"label": "This is a burn address", "type":"danger", "url":"http://example.com"}
+  // example : "GLjRv3qsGLgonvhSRxUJ5SntVmkYGHtvFH": {"label": "This is a burn address", "type":"danger", "url":"http://example.com"}
   // label (required) = test to display
   // type (optional) = class of label, valid types: default, primary, warning, danger, success
   // url (optional) = url to link to for more information
   "labels": {
-  //  "JSoEdU717hvz8KQVq2HfcqV9A79Wihzusu": {"label": "Developers address", "type":"primary", "url":"http://example.com"},
-  //  "JSWVXHWeYNknPdG9uDrcBoZHztKMFCsndw": {"label": "Cryptsy"}
+  //  "GLjRv3qsGLgonvhSRxUJ5SntVmkYGHtvFH": {"label": "Developers address", "type":"primary", "url":"http://example.com"}
   }
 }
