@@ -27,7 +27,7 @@ Create user with read/write access:
 
 	> db.createUser( { user: "geek", pwd: "explorer", roles: [ "readWrite" ] } )
 
-*Note: If you're using mongo shell 4.2.x, use the following to create your user:
+*Note: If you're using mongo shell 4.2.x, use the following to create your user:*
 
 	> db.addUser( { user: "geek", pwd: "explorer", roles: [ "readWrite"] })
 
@@ -37,7 +37,7 @@ Create user with read/write access:
 
 ### Install node modules
 
-	cd explorer && npm install --production
+	cd geek-explorer && npm install --production
 
 ### Configure
 
@@ -85,12 +85,12 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 
 *Example crontab; update index every minute and market data every 2 minutes*
 
-	*/1 * * * * cd /path/to/explorer && /usr/bin/nodejs scripts/sync.js index update > /dev/null 2>&1
-	*/5 * * * * cd /path/to/explorer && /usr/bin/nodejs scripts/peers.js > /dev/null 2>&1
+	*/1 * * * * cd /path/to/geek-explorer && /usr/bin/nodejs scripts/sync.js index update > /dev/null 2>&1
+	*/5 * * * * cd /path/to/geek-explorer && /usr/bin/nodejs scripts/peers.js > /dev/null 2>&1
 
 ### Wallet
 
-The GeekCash wallet must be running with atleast the following flags
+The GeekCash wallet must be running with at least the following flags:
 
 	-daemon -txindex
 	
