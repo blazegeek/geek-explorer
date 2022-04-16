@@ -263,7 +263,7 @@ app.use('/ext/connections', function(req,res){
 
 // locals
 app.set('title', settings.title);
-app.set('iquidus_version', package_metadata.version);
+app.set('explorer_version', package_metadata.version);
 app.set('symbol', settings.symbol);
 app.set('coin', settings.coin);
 app.set('locale', locale);
