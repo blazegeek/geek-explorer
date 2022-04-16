@@ -33,13 +33,13 @@
 
 @font-face {
 	font-family: "Source Code Pro";
-	src: url("../fonts/SourceCodePro/static/SourceCodePro-Regular.ttf");
+	src: url("../fonts/SourceCodePro/SourceCodePro-Regular.ttf");
 }
 
 @font-face {
 	font-family: "Source Code Pro";
 	font-weight: bold;
-	src: url("../fonts/SourceCodePro/static/SourceCodePro-Bold.ttf");
+	src: url("../fonts/SourceCodePro/SourceCodePro-Bold.ttf");
 }
 
 @font-face {
@@ -88,20 +88,20 @@
 body {
 	padding: 80px 40px;
 	font: 14px Play, sans-serif;
- /* background-image: url('/images/background2.png');*/
 }
 
 .use-mono {
-		font-family: "Source Code Pro";
+	font-family: "Source Code Pro";
 }
 
 .use-mono-large {
-		font-size: 16px;
+	font-family: "Source Code Pro";
+	font-size: 16px;
 }
 
 .use-teko {
-		font-family: Teko;
-		font-size: 18px;
+	font-family: Teko;
+	font-size: 18px;
 }
 
 .use-rokkitt {
