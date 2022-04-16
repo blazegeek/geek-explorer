@@ -51,7 +51,7 @@ Create user with read/write access:
 
 *Note: mongod must be running to start the explorer*
 
-As of version 1.4.0 the explorer defaults to cluster mode, forking an instance of its process to each cpu core. This results in increased performance and stability. Load balancing gets automatically taken care of and any instances that for some reason die, will be restarted automatically. For testing/development (or if you just wish to) a single instance can be launched with
+The explorer defaults to cluster mode, forking an instance of its process to each cpu core. This results in increased performance and stability. Load balancing gets automatically taken care of and any instances that for some reason die, will be restarted automatically. For testing/development (or if you just wish to) a single instance can be launched with
 
 	node --stack-size=10000 bin/instance
 
@@ -61,29 +61,25 @@ To stop the cluster you can use
 
 ### Syncing databases with the blockchain
 
-sync.js (located in scripts/) is used for updating the local databases. This script must be called from the explorers root directory.
+sync.js (located in scripts/) is used for updating the local databases. This script must be called from the explorer's root directory.
 
-	Usage: node scripts/sync.js [database] [mode]
+	Usage: node scripts/sync.js index [mode]
 
-	database: (required)
-	index [mode] Main index: coin info/stats, transactions & addresses
-
-	mode: (required for index database only)
+	mode: (required)
 	update       Updates index from last sync to current block
 	check        checks index for (and adds) any missing transactions/addresses
 	reindex      Clears index then resyncs from genesis to current block
 
 	notes:
 	* 'current block' is the latest created block when script is executed.
-	* If check mode finds missing data(ignoring new data since last sync),
+	* If check mode finds missing data (ignoring new data since last sync),
 	  index_timeout in settings.json is set too low.
-
 
 *It is recommended to have this script launched via a cronjob at 1+ min intervals.*
 
-**crontab**
+### Crontab
 
-*Example crontab; update index every minute and market data every 2 minutes*
+*Example crontab; update index every minute and peer data every 5 minutes*
 
 	*/1 * * * * cd /path/to/geek-explorer && /usr/bin/nodejs scripts/sync.js index update > /dev/null 2>&1
 	*/5 * * * * cd /path/to/geek-explorer && /usr/bin/nodejs scripts/peers.js > /dev/null 2>&1
