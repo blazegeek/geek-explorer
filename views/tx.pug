@@ -7,7 +7,8 @@ block content
 			| Viewing TXID: #{tx.txid}
 		.card.card-default
 			.card-header.d-none.d-md-block
-				strong=settings.symbol + ' TXid: ' + tx.txid
+				strong=settings.symbol + ' TXID: '
+				span.use-mono #{tx.txid}
 				a(href=`/api/getrawtransaction?txid=${tx.txid}&decrypt=1`)
 					span.fa.fa-info-circle.iquidus.pull-right
 			div.table-responsive

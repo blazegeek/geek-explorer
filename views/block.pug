@@ -12,7 +12,8 @@ block content
 							span.fa.fa-chevron-left.iquidus.block-last(data-toggle='tooltip', data-placement='top', title=settings.locale.block_previous)  
 						strong.d-none.d-sm-block #{settings.symbol} block: #{block.hash}
 					else
-						strong.d-none.d-sm-block(style='margin-left:10px;') #{settings.symbol} #{settings.locale.ex_block}: #{block.hash}
+						strong.d-none.d-sm-block(style='margin-left:10px;') #{settings.symbol} #{settings.locale.ex_block}:
+						span.use-mono #{block.hash}
 					if block.nextblockhash != null 
 						a(href='/block/'+ block.nextblockhash)
 							span.fa.fa-chevron-right.iquidus.pull-right.block-next(data-toggle='tooltip', data-placement='top', title=settings.locale.block_next)      
