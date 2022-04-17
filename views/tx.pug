@@ -18,34 +18,34 @@ block content
 							th.hidden-xs #{settings.locale.tx_block_hash}
 							th #{settings.locale.timestamp}
 							th
-					tbody
+					tbody.use-mono.justify-right
 						- var confirms = (blockcount - tx.blockindex);
 						if confirms >= confirmations             
 							tr.table-success
-									td.use-mono #{confirms}
-									td.hidden-xs.use-mono 
+									td #{confirms}
+									td.hidden-xs 
 										a(href='/block/'+tx.blockhash) #{tx.blockhash}
-									td.use-mono #{time}
-									td.view_tx.use-mono  
+									td #{time}
+									td.view_tx  
 										a(href='/block/'+tx.blockhash)
 											span.fa.fa-eye 
 						else
 							if confirms < (confirmations / 2)
 								tr.table-danger
-									td.use-mono #{confirms}
-									td.hidden-xs.use-mono  
+									td #{confirms}
+									td.hidden-xs  
 										a(href='/block/'+tx.blockhash) #{tx.blockhash}
-									td.use-mono #{time}
-									td.view_tx.use-mono  
+									td #{time}
+									td.view_tx  
 										a(href='/block/'+tx.blockhash)
 											span.fa.fa-eye 
 							else
 								tr.table-warning
-									td.use-mono #{confirms}
-									td.hidden-xs.use-mono  
+									td #{confirms}
+									td.hidden-xs  
 										a(href='/block/'+tx.blockhash) #{tx.blockhash}
-									td.use-mono #{time}
-									td.view_tx.use-mono  
+									td #{time}
+									td.view_tx  
 										a(href='/block/'+tx.blockhash)
 											span.fa.fa-eye
 		if tx.vout.length < 1
@@ -65,7 +65,7 @@ block content
 									if (tx.vin.length > 0)
 										if (tx.vin[0].addresses != 'coinbase')
 											th.d-xs-none #{settings.locale.tx_amount} (#{settings.symbol})
-							tbody
+							tbody.use-mono.justify-right
 								if tx.vin.length > 0
 									each r in tx.vin
 										if r.addresses == 'coinbase' 
@@ -95,7 +95,7 @@ block content
 								tr
 									th #{settings.locale.tx_address}
 									th.d-none.d-md-block #{settings.locale.tx_amount} (#{settings.symbol})
-							tbody.use-mono
+							tbody.use-mono.justify-right
 								each r in tx.vout
 									if tx.vout.length > 0 
 										- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
