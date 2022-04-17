@@ -7,18 +7,19 @@ block content
 			| Viewing TXID: #{tx.txid}
 		.card.card-default
 			.card-header.d-none.d-md-block
-				strong=settings.symbol + ' TXid: ' + tx.txid
+				strong #{settings.symbol} TXID: 
+					span.use-mono #{tx.txid}
 				a(href=`/api/getrawtransaction?txid=${tx.txid}&decrypt=1`)
 					span.fa.fa-info-circle.iquidus.pull-right
 			div.table-responsive
 				table.table.table-bordered.table-striped.summary-table 
-					thead
+					thead.text-center
 						tr
 							th #{settings.locale.confirmations}
 							th.hidden-xs #{settings.locale.tx_block_hash}
 							th #{settings.locale.timestamp}
 							th
-					tbody
+					tbody.use-mono.text-right
 						- var confirms = (blockcount - tx.blockindex);
 						if confirms >= confirmations             
 							tr.table-success
@@ -59,20 +60,20 @@ block content
 							strong #{settings.locale.tx_contributors}
 							span.fa.fa-arrow-right.pull-right.d-xs-none
 						table.table.table-bordered.table-striped.summary-table 
-							thead
+							thead.text-center
 								tr
 									th #{settings.locale.tx_address}
 									if (tx.vin.length > 0)
 										if (tx.vin[0].addresses != 'coinbase')
 											th.d-xs-none #{settings.locale.tx_amount} (#{settings.symbol})
-							tbody
+							tbody.use-mono.text-right
 								if tx.vin.length > 0
 									each r in tx.vin
 										if r.addresses == 'coinbase' 
 											tr.table-info(style='text-align:center')
 												td #{settings.locale.new_coins}
 										else
-											- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+											- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
 											- var ramountParts = ramount.split('.')
 											tr
 												td 
@@ -91,14 +92,14 @@ block content
 						.card-header
 							strong #{settings.locale.tx_recipients}
 						table.table.table-bordered.table-striped.summary-table 
-							thead
+							thead.text-center
 								tr
 									th #{settings.locale.tx_address}
 									th.d-none.d-md-block #{settings.locale.tx_amount} (#{settings.symbol})
-							tbody
+							tbody.use-mono.text-right
 								each r in tx.vout
 									if tx.vout.length > 0 
-										- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+										- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
 										- var ramountParts = ramount.split('.')
 										tr.d-sm-block.d-md-none.d-none
 											td 
@@ -110,7 +111,7 @@ block content
 											td.success #{ramountParts[0]}.
 														span.decimal #{ramountParts[1]} #{settings.symbol}
 									else
-										- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+										- var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
 										- var ramountParts = ramount.split('.')
 									tr
 										td 

@@ -10,7 +10,8 @@ block content
 	.col-xs-12.col-md-12
 		.card.card-default.card-address-summary
 			.card-header(style='position:relative;')
-				strong #{address.a_id}
+				strong GEEK Address: 
+					span.use-mono #{address.a_id}
 					if settings.labels[address.a_id]
 						if settings.labels[address.a_id].type
 							label(class='label label-'+settings.labels[address.a_id].type+' pull-right hidden-xs', style='margin-left:15px;')

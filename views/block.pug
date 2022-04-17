@@ -2,7 +2,7 @@ extends layout
 
 block content
 	- var time = format_unixtime(block.time)
-	- var block_difficulty = parseFloat(block.difficulty).toFixed(8)
+	- var block_difficulty = parseFloat(block.difficulty).toFixed(12)
 	.col-xs-12.col-md-12
 		.card.card-default
 			.card-header(style='padding-left:25px;padding-right:25px;')       
@@ -10,16 +10,18 @@ block content
 					if block.previousblockhash != null
 						a(href='/block/'+ block.previousblockhash)
 							span.fa.fa-chevron-left.iquidus.block-last(data-toggle='tooltip', data-placement='top', title=settings.locale.block_previous)  
-						strong.d-none.d-sm-block #{settings.symbol} block: #{block.hash}
+						strong.d-none.d-sm-block #{settings.symbol} Block: 
+							span.use-mono #{block.hash}
 					else
-						strong.d-none.d-sm-block(style='margin-left:10px;') #{settings.symbol} #{settings.locale.ex_block}: #{block.hash}
+						strong.d-none.d-sm-block(style='margin-left:10px;') #{settings.symbol} #{settings.locale.ex_block}: 
+							span.use-mono #{block.hash}
 					if block.nextblockhash != null 
 						a(href='/block/'+ block.nextblockhash)
 							span.fa.fa-chevron-right.iquidus.pull-right.block-next(data-toggle='tooltip', data-placement='top', title=settings.locale.block_next)      
 					a(href=`/api/getblock?hash=` + block.hash)
 						span.fa.fa-info-circle.iquidus.pull-right
 			table.table.table-bordered.summary-table 
-				thead
+				thead.text-center
 					tr
 						th #{settings.locale.height}
 						th #{settings.locale.difficulty}
@@ -28,12 +30,12 @@ block content
 						th.d-none.d-sm-table-cell.d-table-cell #{settings.locale.bits}
 						th.d-none.d-sm-table-cell.d-table-cell #{settings.locale.nonce}
 						th.d-none.d-sm-table-cell.d-table-cell #{settings.locale.timestamp}
-				tbody
+				tbody.use-mono.text-right
 					if block.confirmations >= confirmations                
 						tr.table-success
 							- var block_size = block.size/1024
 							td=block.height
-							td=Number(block.difficulty).toFixed(8)
+							td=Number(block.difficulty).toFixed(12)
 							td=block.confirmations
 							td.d-none.d-sm-table-cell.d-table-cell=block_size.toFixed(2)
 							td.d-none.d-sm-table-cell.d-table-cell=block.bits
@@ -44,7 +46,7 @@ block content
 							tr.table-danger
 								- var block_size = block.size/1024
 								td=block.height
-								td=Number(block.difficulty).toFixed(8)
+								td=Number(block.difficulty).toFixed(12)
 								td=block.confirmations
 								td.d-none.d-sm-table-cell.d-table-cell=block_size.toFixed(2)
 								td.d-none.d-sm-table-cell.d-table-cell=block.bits
@@ -54,7 +56,7 @@ block content
 							tr.table-warning
 								- var block_size = block.size/1024
 								td=block.height
-								td=Number(block.difficulty).toFixed(8)
+								td=Number(block.difficulty).toFixed(12)
 								td=block.confirmations
 								td.d-none.d-sm-cell.d-table-cell=block_size.toFixed(2)
 								td.d-none.d-sm-table-cell.d-table-cell=block.bits
@@ -69,13 +71,13 @@ block content
 				.card-header
 					strong #{settings.locale.ex_latest_transactions}
 				table.table.table-bordered.table-striped.summary-table 
-					thead
+					thead.text-center
 						tr
 							th.d-none.d-sm-table-cell #{settings.locale.tx_hash}
 							th #{settings.locale.tx_recipients}
 							th #{settings.locale.tx_amount} (#{settings.symbol})
 							th
-					tbody
+					tbody.use-mono.text-right
 						each txn in txs
 							tr
 								td.d-none.d-sm-table-cell
