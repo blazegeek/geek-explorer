@@ -10,7 +10,8 @@ block content
 					if block.previousblockhash != null
 						a(href='/block/'+ block.previousblockhash)
 							span.fa.fa-chevron-left.iquidus.block-last(data-toggle='tooltip', data-placement='top', title=settings.locale.block_previous)  
-						strong.d-none.d-sm-block #{settings.symbol} block: #{block.hash}
+						strong.d-none.d-sm-block #{settings.symbol} Block:
+						span.use-mono #{block.hash}
 					else
 						strong.d-none.d-sm-block(style='margin-left:10px;') #{settings.symbol} #{settings.locale.ex_block}:
 						span.use-mono #{block.hash}
