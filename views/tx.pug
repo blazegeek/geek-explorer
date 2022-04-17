@@ -18,7 +18,7 @@ block content
 							th.hidden-xs #{settings.locale.tx_block_hash}
 							th #{settings.locale.timestamp}
 							th
-					tbody.use-mono.justify-right
+					tbody.use-mono.text-right
 						- var confirms = (blockcount - tx.blockindex);
 						if confirms >= confirmations             
 							tr.table-success
