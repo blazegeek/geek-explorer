@@ -19,7 +19,7 @@ Enter MongoDB cli:
 
 	$ mongo
 
-Create databse:
+Create database:
 
 	> use explorerdb
 
