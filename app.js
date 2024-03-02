@@ -13,18 +13,18 @@ var package_metadata = require('./package.json');
 var locale = require('./lib/locale');
 var request = require('request');
 
-var forceSSL = require('express-force-ssl');
-var https = require('https');
+//var forceSSL = require('express-force-ssl');
+//var https = require('https');
 var fs = require('fs');
-var sslOptions = {
+/*var sslOptions = {
 	key: fs.readFileSync('./cert/server.key'),
 	cert: fs.readFileSync('./cert/server.cert'),
 	ca: fs.readFileSync('./cert/server.ca')
 };
-
+*/
 var app = express();
 
-var secureServer = https.createServer(sslOptions, app);
+//var secureServer = https.createServer(sslOptions, app);
 
 // bitcoinapi
 bitcoinapi.setWalletDetails(settings.wallet);
@@ -311,6 +311,6 @@ app.use(function(err, req, res, next) {
 		});
 });
 
-secureServer.listen(443);
+//secureServer.listen(443);
 
 module.exports = app;
